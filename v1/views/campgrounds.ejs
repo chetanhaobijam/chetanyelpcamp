@@ -1,0 +1,47 @@
+<%- include("partials/header") %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="/">YelpCamp</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse justify-content-end" id="navbar">
+		<ul class="navbar-nav">
+			<li class="nav-item mr-2">
+				<a class="nav-link" href="#">Login</a>
+			</li>
+			<li class="nav-item mr-2">
+				<a class="nav-link" href="#">Sign Up</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Log Out</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome to Yelp Camp</h1>
+			<p>View our hand picked campgrounds from all over the world</p>
+			<p>
+				<a class="btn btn-lg btn-primary" href="campgrounds/new">Add New Campgrounds</a>
+			</p>
+		</div>
+	</header>
+	<div class="row" style="display: flex; flex-wrap: wrap">
+		<% campgrounds.forEach(function(campground){ %>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="<%= campground.image %>">
+				<div class="caption">
+					<h4><%= campground.name %></h4>
+				</div>
+			</div>
+		</div>
+		<% }) %>
+	</div>
+</div>
+
+<%- include("partials/footer") %>
